@@ -1,0 +1,20 @@
+<launch>
+
+<node name="$(anon offline_kitti)" pkg="patchwork" type="offline_kitti" output="screen" >
+<rosparam param="/algorithm">"patchwork"</rosparam> 
+<rosparam param="/seq">"00"</rosparam> 
+<rosparam param="/data_path">"/media/gky/Elements5/data_all/kitti数据集/semantickitti/dataset/sequences/10"</rosparam> 
+<rosparam param="/save_flag">false</rosparam>
+<rosparam param="/save_csv">true</rosparam>
+<rosparam param="/acc_filename">"/media/gky/Elements5/数据集/results/ground_seg/patchwork/csv/10/accuracy.csv"</rosparam>
+<rosparam param="/pcd_savepath">"/media/gky/Elements5/数据集/results/ground_seg/patchwork/pcd/10"</rosparam>
+<rosparam param="/output_gtpoints_name">"/media/gky/Elements5/数据集/results/ground_seg/patchwork/csv/10/gt_nums.csv"</rosparam>
+<rosparam param="/output_filename">"/media/gky/Elements5/数据集/results/ground_seg/patchwork/csv/10/patchwork.csv"</rosparam>
+
+</node>
+
+
+<node name="rviz" pkg="rviz" type="rviz" args="-d $(find patchwork)/rviz/patchwork_viz.rviz"/>
+
+<rosparam command="load" file="$(find patchwork)/config/params.yaml" />
+</launch>
